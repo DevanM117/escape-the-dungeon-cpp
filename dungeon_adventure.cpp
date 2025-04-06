@@ -125,3 +125,52 @@ int main() {
             cout << "You decide not to trust mysterious magic today.\n";
         }
     }
+  // Final Decision: Key Puzzle
+  cout << "\nYou reach a chamber with a glowing pedestal and 3 keys.\n";
+  cout << "One opens the exit. Others = death.\n";
+  cout << "Choose a key: 1, 2, or 3: ";
+
+  int keyChoice;
+  while (!(cin >> keyChoice) || keyChoice < 1 || keyChoice > 3) {
+      cout << "Invalid input. Please enter 1, 2, or 3: ";
+      clearInput();
+  }
+
+  switch (keyChoice) {
+      case 1:
+          cout << "\nYou chose the golden key...\n";
+          cout << "The door unlocks! You escape!\n";
+          cout << "You survived with " << health << " health.\n";
+          break;
+      case 2:
+          cout << "\nA poison gas trap activates!\n";
+          if (hasItem(inventory, "potion") || hasItem(inventory, "extra potion")) {
+              cout << "You drink your potion just in time and survive.\n";
+              health -= 50;
+              cout << "Health now: " << health << "\n";
+              if (health <= 0) {
+                  cout << "But the potion wasn’t enough. You collapse.\n";
+                  return 0;
+              } else {
+                  cout << "You find a backup key and escape. Barely!\n";
+              }
+          } else {
+              cout << "You have no potion. You die.\n";
+              return 0;
+          }
+          break;
+      case 3:
+          cout << "\nThe floor collapses! You fall into a pit.\n";
+          cout << "Game over.\n";
+          return 0;
+  }
+
+  // Game ending summary
+  cout << "\nInventory: ";
+  for (const string& item : inventory) {
+      cout << item << " ";
+  }
+  cout << "\nThanks for playing 'Escape the Dungeon'!\n";
+
+  return 0;
+}
