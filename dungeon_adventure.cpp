@@ -17,3 +17,10 @@ void clearInput() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
+// Helper function to check if an item exists in the inventory
+bool hasItem(const vector<string>& inventory, const string& item) {
+    for (const string& i : inventory) {
+        if (i == item) return true;
+    }
+    return false;
+}
