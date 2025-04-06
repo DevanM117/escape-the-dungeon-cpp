@@ -24,3 +24,22 @@ bool hasItem(const vector<string>& inventory, const string& item) {
     }
     return false;
 }
+
+int main() {
+    int health = 100; // Player starts with full health
+    vector<string> inventory; // Inventory to hold player items
+
+    // Game Introduction
+    cout << "============================\n";
+    cout << "   Welcome to 'Escape the Dungeon'\n";
+    cout << "============================\n";
+    cout << "You wake up in a cold, damp dungeon with nothing but your instincts.\n";
+    cout << "Mission: Escape... if you can.\n";
+    cout << "You have " << health << " health.\n\n";
+
+      // Starting items
+      cout << "You find a rusty sword and a small healing potion near you.\n";
+      inventory.push_back("sword");
+      inventory.push_back("potion");
+      cout << "You pick them up and prepare to explore.\n\n";
+  
